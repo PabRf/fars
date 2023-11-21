@@ -1,0 +1,30 @@
+Package: fars
+Title: R Package for Analysis of State- and Year-Based Data
+Version: 0.0.0.9000
+Date: 2023-11.10
+Authors@R: 
+    person("Paul", "Brown", , "pabuwi50@gmail.com", role = c("aut", "cre"))
+Description: A group of functions that extract state- and year-based data, verifies 
+            the year of the input file(s), as well as summarizes and creates maps of
+            the input file data.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    farsFiki,
+    graphics,
+    maps,
+    readr,
+    tibble,
+    tidyr
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+LazyData: true

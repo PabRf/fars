@@ -1,0 +1,101 @@
+---
+title: "farsFunctions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(fars)
+```
+
+
+## Description
+
+The farsFunctions functions extract state- and year-based data from input CSV file(s), creates corresponding file names,
+verifies the "year" of the input file(s), summarizes the number of observations in each file and creates maps from the
+input files.
+
+  . fars_read() checks whether the CSV file exists. If the file exists, then it is read and coerced into a tibble.
+  
+  . make_filename() takes an input year, converts it to an integer, and then into a file name in the format: "accident_YYYY.csv.bz2",
+    where YYYY represents the input year.
+    
+  . fars_read_years() checks whether the input vector "years", contains elements that appear in the output from make_filename() that
+    produces file names in the format: "accident_YYYY.csv.bz2", where YYYY represents the year.
+  
+  . fars_summarize_years() computes the number of observations per month and year for each input file with format:"accident_YYYY.csv.bz2",
+    where YYYY represents the year.
+  
+  . fars_map_state() creates a map of accidents that occurred within a specified state and during a specified year.
+
+
+
+## Usage
+
+fars_read("filename")
+
+make_filename(year); make_filename("year"); make_filename(year)
+
+fars_read_years(c(years))
+
+fars_summarize_years(c(years))
+
+fars_map_state(state.num, years)
+
+#> Can access the file path like so:
+file_path = system.file("extdata", "filename", package="farsFunctions")
+
+
+
+## Arguments
+
+filename        The name of the file that the function will read and coerce into a tibble.
+state.num       The state code of interest.
+year            The year of interest.
+years           A vector of years.
+
+
+
+## Value
+
+  . fars_read() returns a tibble derived from the input CSV file.
+  
+  . make_filename() returns the file name in the format: "accident_YYYY.csv.bz2".
+    
+  . fars_read_years() returns a data frame with MONTH and year variables for each with a valid year.
+  
+  . fars_summarize_years() returns a tibble with the number of observations for each month and year for each valid input file.
+  
+  . fars_map_state() returns a map of accidents that occurred within a specified state and during a specified year.
+
+
+
+## Examples
+
+#### Reads the CSV file and converts to tibble
+fars_read("accident_2013.csv.bz2")
+
+#### Creates corresponding file name
+make_filename(2013); make_filename("2014"); make_filename(2050)
+
+#### Checks the validity of the year(s) of a vector of files
+fars_read_years(c(2013, 2014, 2015))
+
+#### Computes the number of observations per month and year for each input file
+fars_summarize_years(c(2013, 2014, 2015))
+
+#### Creates a map of accidents for specified state and year
+fars_map_state(1, 2013)
+
+
+-------------------------------------------------------------------------------------------------------------------------------

@@ -1,3 +1,6 @@
 ^fars\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+^\.github$
+^\.travis\.yml$
+

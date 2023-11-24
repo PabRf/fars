@@ -4,7 +4,6 @@ r:
   - release
   - devel
   - bioc-devel
-r_github_packages: r-lib/testthat
 matrix:
   include:
   - r: release

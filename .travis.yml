@@ -3,6 +3,8 @@ language: r
 cache: packages
 warnings_are_errors: false
 
+install: travis_wait 30 r install
+
 # environment variables set for all builds
 env:
   global:
@@ -15,7 +17,6 @@ env:
 r:
   - oldrel
   - release
-  - devel
 
 r_build_args: --no-build-vignettes --no-manual
 r_check_args: --no-build-vignettes --no-manual --timings
@@ -23,21 +24,6 @@ r_check_args: --no-build-vignettes --no-manual --timings
 os:
   - linux
   - osx
-
-# os distributions to use and ignore the results of jobs on one os
-jobs:
-  include:
-    -
-      os: linux
-      dist: trusty
-    -
-      os: osx
-      osx_image: xcode7.3
-  allow_failures:
-    - os: osx
-
-# we need to install BiocInstaller for testing Bioconductor packages
-bioc_required: true
 
 notifications:
   email:

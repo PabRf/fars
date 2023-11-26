@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/PabRf/fars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PabRf/fars/actions/workflows/R-CMD-check.yaml)
+[![Build Status](https://app.travis-ci.com/PabRf/fars.svg?branch=main)](https://app.travis-ci.com/PabRf/fars)
 <!-- badges: end -->
 
 The goal of farsFunctions is to provide a group of functions that extract state- and year-based data, verifies 

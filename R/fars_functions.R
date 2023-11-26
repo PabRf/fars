@@ -66,7 +66,6 @@ make_filename = function(year){
 #' @param years A vector of years that will be checked against the make_filenames()
 #'    output.
 #'
-#' @importFrom farsFiki make_filename fars_read
 #' @importFrom dplyr mutate select %>%
 #'
 #' @return This function returns a data frame with MONTH and year variables for each
@@ -105,7 +104,6 @@ fars_read_years = function(years){
 #'
 #' @param years A vector of years.
 #'
-#' @importFrom farsFiki fars_read_years
 #' @importFrom dplyr bind_rows group_by summarize %>%
 #' @importFrom tidyr spread
 #'
@@ -142,7 +140,6 @@ fars_summarize_years = function(years){
 #' @param state.num The state code of interest
 #' @param year The year of interest
 #'
-#' @importFrom farsFiki make_filename fars_read
 #' @importFrom dplyr filter
 #' @importFrom maps map
 #' @importFrom graphics points

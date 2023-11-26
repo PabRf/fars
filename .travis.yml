@@ -3,8 +3,6 @@ language: r
 cache: packages
 warnings_are_errors: false
 
-install: travis_wait 30 r install
-
 # environment variables set for all builds
 env:
   global:
@@ -15,7 +13,6 @@ env:
 
 # r versions to test on
 r:
-  - oldrel
   - release
 
 r_build_args: --no-build-vignettes --no-manual
